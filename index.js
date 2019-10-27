@@ -7,6 +7,9 @@ const app = express();
 const hostname = '127.0.0.1';
 const port = 3000;
 
+// Donde cargar los archivos estaticos
+app.use(express.static('public'));
+
 // habilitar pug
 app.set('view engine', 'pug');
 

@@ -5,8 +5,29 @@ html(lang="es")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title ..:: UpTask ::..
-    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/css/normalize.css")
+    link(rel="stylesheet", href="/css/app.css")
   body
-    .container
-      h1.text-center Desde el layout
-      block contenido
+    header.barra
+      h1 UpTask - Administrador de Proyectos
+      a(href="#") Cerrar sesión
+
+    main.contenedor
+      aside.contenedor-proyectos
+        .panel.crear-proyecto
+          a(href="/nuevo-proyecto" class="boton") Nuevo proyecto
+            span +
+        .panel.lista-proyectos
+          h2 Proyectos
+          ul#proyectos.proyectos
+            li
+              a(href="#") Diseño de tienda virtual
+            li
+              a(href="#") Diseño de nuevo blog
+            li
+              a(href="#") Diseño de logotipo
+
+
+
+      .contenido-principal
+        block contenido

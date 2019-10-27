@@ -1,7 +1,15 @@
 exports.proyectosHome = (req, res) => {
-  res.render('index');
+  res.render('index',{
+    nombrePagina: 'Proyectos'
+  });
 }
 
-exports.nosotros = (req, res) => {
-  res.send('Nosotros Controller');
+exports.formularioProyecto = (req, res) => {
+  res.render('nuevoProyecto', {
+    nombrePagina: 'Nuevos proyectos'
+  });
+}
+
+exports.nuevoProyecto = (req, res) => {
+  res.send('Enviaste el formulario')
 }
