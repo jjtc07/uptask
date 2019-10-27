@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = require('./routes');
 const path = require('path')
+const bodyParser = require('body-parser')
 
 // crear una app de express
 const app = express();
@@ -15,6 +16,9 @@ app.set('view engine', 'pug');
 
 // Añadir la carpeta de las vistas
 // app.set('views', path.join(__dirname, './views')); // es opcional o para settear la carpeta por default ya que sin esta linea funciona correctamente.
+
+// Habilitar bodyParser para leer datos del formulario
+app.use(bodyParser.urlencoded({extended: true}));
 
 // ruta para el home
 app.use('/', routes());
