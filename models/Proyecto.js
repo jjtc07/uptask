@@ -1,14 +1,14 @@
 const Sequelize = require('sequelize');
 const db = require('../config/db');
 
-const Proyectos = db.define('proyectos', {
-  id: {
-    type: Sequelize.INTEGER,
+const Proyecto = db.define('proyectos', {
+  id: { 
+    type: Sequelize.INTEGER, 
     primaryKey: true,
-    autoIncremente: true,
+    autoIncrement: true 
   },
   nombre: Sequelize.STRING,
   url: Sequelize.STRING,
 })
 
-module.exports = Proyectos;
+module.exports = Proyecto;
