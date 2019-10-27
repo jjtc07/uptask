@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize');
 
 // Option 1: Passing parameters separately
-const sequelize = new Sequelize('uptasknode', 'root', 'mysql', {
+// const sequelize = new Sequelize('uptasknode', 'root', 'mysql', {
+module.exports = new Sequelize('uptasknode', 'root', 'mysql', {
   host: 'localhost',
   dialect: 'mysql', /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
   port: '3306',
-  operatorsAliases: false,
   define: {
     timestamps: false,
   },

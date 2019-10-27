@@ -3,6 +3,16 @@ const routes = require('./routes');
 const path = require('path')
 const bodyParser = require('body-parser')
 
+// crear conexión a la BD
+const db = require('./config/db');
+
+// Importar el modelo
+require('./models/Proyectos');
+
+db.sync()
+      .then(() => console.log('Conectado al servidor de mysql'))
+      .catch(err => console.log('error al conectar con mysql: ', err))
+
 // crear una app de express
 const app = express();
 const hostname = '127.0.0.1';
