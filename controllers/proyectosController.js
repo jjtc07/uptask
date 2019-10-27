@@ -1,4 +1,5 @@
 const Proyecto = require('../models/Proyecto');
+const slug = require('slug');
 
 exports.proyectosHome = (req, res) => {
   res.render('index',{
@@ -34,6 +35,9 @@ exports.nuevoProyecto = async (req, res) => {
   //   .then(() => console.log('Se guardo el proyecto correctamente'))
   //   .catch(err => console.log('Error al guardar proyecto: ', err))
 
+  // url amigable
+  const url = slug(nombre).toLowerCase();
+
   // usando async await
-  const proyecto = await Proyecto.create({nombre});
+  const proyecto = await Proyecto.create({nombre, url});
 }
