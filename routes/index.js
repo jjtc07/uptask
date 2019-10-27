@@ -1,15 +1,12 @@
 const express = require('express');
 const router = express.Router(); 
+const proyectosController = require('../controllers/proyectosController')
 
 module.exports = () => {
   // ruta para el home
-  router.get('/', (req, res) => {
-    res.send('Inicio');
-  })
+  router.get('/', proyectosController.proyectosHome);
 
-  router.get('/nosotros', (req, res) => {
-    res.send('Nosotros');
-  })
+  router.get('/nosotros', proyectosController.nosotros);
 
   return router;
 }
