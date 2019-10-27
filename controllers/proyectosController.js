@@ -36,8 +36,9 @@ exports.nuevoProyecto = async (req, res) => {
   //   .catch(err => console.log('Error al guardar proyecto: ', err))
 
   // url amigable
-  const url = slug(nombre).toLowerCase();
+  // const url = slug(nombre).toLowerCase();
 
   // usando async await
-  const proyecto = await Proyecto.create({nombre, url});
+  const proyecto = await Proyecto.create({nombre});
+  res.redirect('/');
 }
