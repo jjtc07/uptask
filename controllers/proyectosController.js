@@ -30,8 +30,7 @@ exports.nuevoProyecto = (req, res) => {
     })
   }
 
-  Proyecto.create({
-    nombre,
-  }).then(() => console.log('Se guardo el proyecto correctamente'))
+  Proyecto.create({nombre})
+    .then(() => console.log('Se guardo el proyecto correctamente'))
     .catch(err => console.log('Error al guardar proyecto: ', err))
 }
