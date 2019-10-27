@@ -2,6 +2,9 @@
   "name": "uptask",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "nodemon *.js"
+  },
   "author": "Jesús Torres",
   "license": "MIT",
   "dependencies": {
