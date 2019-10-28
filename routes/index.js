@@ -11,5 +11,9 @@ module.exports = () => {
     body('nombre').not().isEmpty().trim().escape(),
     proyectosController.nuevoProyecto);
 
+  // show proyecto
+  router.get('/proyectos/:url', proyectosController.proyectosPorUrl);
+  
+
   return router;
 }

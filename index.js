@@ -10,7 +10,7 @@ const helpers = require('./helpers')
 const db = require('./config/db');
 
 // Importar el modelo
-require('./models/Proyecto');
+const Proyecto = require('./models/Proyecto');
 
 db.sync()
       .then(() => console.log('Conectado al servidor de mysql'))
@@ -34,8 +34,10 @@ app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({extended: true}));
 
 // pasar vardump a la aplicación
-app.use((req, res, next) => {
+app.use(async (req, res, next) => {
+  const proyectos = await Proyecto.findAll();
   res.locals.vardump = helpers.vardump;
+  res.locals.proyectos = proyectos;
 
   next(); // continuar con el código siguiente(el siguiente middleware)
 })
