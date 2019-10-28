@@ -3,6 +3,9 @@ const routes = require('./routes');
 const path = require('path')
 const bodyParser = require('body-parser')
 
+// helpers con algunas funciones
+const helpers = require('./helpers')
+
 // crear conexión a la BD
 const db = require('./config/db');
 
@@ -29,6 +32,13 @@ app.set('view engine', 'pug');
 
 // Habilitar bodyParser para leer datos del formulario
 app.use(bodyParser.urlencoded({extended: true}));
+
+// pasar vardump a la aplicación
+app.use((req, res, next) => {
+  res.locals.vardump = helpers.vardump;
+
+  next(); // continuar con el código siguiente(el siguiente middleware)
+})
 
 // ruta para el home
 app.use('/', routes());
