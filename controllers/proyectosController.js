@@ -57,3 +57,38 @@ exports.proyectosPorUrl = async (req, res) => {
     proyecto
   });
 }
+
+exports.formularioEditar = async (req, res) => {
+  const { url } = req.params;
+
+  // para multibles peticiones asincronas no dependientes una de otra
+  // la manera mal hecha es:
+  // const proyectos = await Proyecto.findAll();
+  // const proyecto = await Proyecto.findOne({
+  //   where: {
+  //     url,
+  //   }
+  // });
+
+  // la manera correcta es ;
+  const proyectosPromise = Proyecto.findAll();
+  const proyectoPromise = Proyecto.findOne({
+    where: {
+      url,
+    }
+  });
+
+  const [proyectos, proyecto] = await Promise.all([proyectosPromise, proyectoPromise]);
+
+  // const proyecto = await Proyecto.findOne({
+  //   where: {
+  //     url,
+  //   }
+  // });
+
+  res.render('nuevoProyecto', {
+    nombrePagina: 'Editar Proyecto',
+    proyectos,
+    proyecto
+  });
+}
