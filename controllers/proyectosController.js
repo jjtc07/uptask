@@ -61,7 +61,7 @@ exports.proyectosPorUrl = async (req, res) => {
 exports.formularioEditar = async (req, res) => {
   const { url } = req.params;
 
-  // para multibles peticiones asincronas no dependientes una de otra
+  // para resolver multiples funciones asincronas no dependientes una de otra
   // la manera mal hecha es:
   // const proyectos = await Proyecto.findAll();
   // const proyecto = await Proyecto.findOne({
